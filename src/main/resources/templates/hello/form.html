@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/mystyle.css}" rel="stylesheet">
+    <title> Hello World </title>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h4 class="border-bottom my-3">[[#{CreateUser}]]</h4>
+
+                <form th:action="@{/hello/form}" th:object="${form}" method="post">
+
+                    <div class="mb-3">
+                        <label for="name">[[#{name}]]</label>
+                        <input type="text" class="form-control" th:errorclass="is-invalid" th:field="*{name}">
+                        <div class="invalid-feedback" th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">[[#{email}]]</label>
+                        <input type="text" class="form-control" th:errorclass="is-invalid" th:field="*{email}">
+                        <div class="invalid-feedback" th:errors="*{email}"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phoneNumber">[[#{phoneNumber}]]</label>
+                        <input type="text" class="form-control" th:errorclass="is-invalid" th:field="*{phoneNumber}">
+                        <div class="invalid-feedback" th:errors="*{phoneNumber}"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="birthday">[[#{birthday}]]</label>
+                        <input type="text" class="form-control" th:errorclass="is-invalid" th:field="*{birthday}">
+                        <div class="invalid-feedback" th:errors="*{birthday}"></div>
+                    </div>
+                
+                    <button class="btn btn-primary btn-lg w-100" type="submit">[[#{confirm}]]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
