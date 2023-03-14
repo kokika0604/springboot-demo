@@ -9,9 +9,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @Entity
 @Data
+@Accessors(chain = true)
 public class Employee {
     
     @Id
@@ -19,9 +22,10 @@ public class Employee {
     private Integer id;
 
     @NotBlank
-    @Size(max = 10)
+    @Size(max = 20)
     private String name;
 
     @ManyToOne
+    @ToString.Exclude
     private Department department;
 }
