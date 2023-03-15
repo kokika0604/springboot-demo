@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SecurityController {
     
-    @GetMapping("/")
-    public String success()
+    @GetMapping("/login")
+    public String login()
     {
-        return "success";
+        return "security/login";
+    }
+
+    @GetMapping("/mypage")
+    public String showMyPage()
+    {
+        return "security/mypage";
     }
 }
