@@ -1,10 +1,5 @@
 package com.example.demo.model;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -60,17 +55,6 @@ public class User {
         Gender(String label) {
             this.label = label;
         }
-
-        // public final static Map<String, Gender> LIST_MAPPED_BY_NAME = new LinkedHashMap<>();
-
-        // public final static List<String> NAMES = new ArrayList<>();
-
-        // static {
-        //     for (Gender gender: Gender.values()) {
-        //         LIST_MAPPED_BY_NAME.put(gender.toString(), gender);
-        //         NAMES.add(gender.toString());
-        //     }
-        // }
     }
 
     public enum Authority {

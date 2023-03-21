@@ -63,5 +63,3 @@ public class HelloController {
         binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
     }
 }
-
-// TODO: 1.thymeleafの使い方 2.カスタムアノテーション

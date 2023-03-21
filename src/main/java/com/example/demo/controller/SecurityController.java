@@ -54,7 +54,7 @@ public class SecurityController {
             .setUsername(form.getUsername())
             .setEmail(form.getEmail())
             .setPassword(passwordEncoder.encode(form.getPassword()))
-            .setGender(User.Gender.valueOf(form.getGender()));
+            .setGender(form.getGender() != null ? User.Gender.valueOf(form.getGender()) : null);
         userRepository.save(user);
 
         return "redirect:/login?register";

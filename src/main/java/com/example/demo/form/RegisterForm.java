@@ -14,11 +14,12 @@ import com.example.demo.validator.Enum;
 import com.example.demo.validator.UniqueUsername;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 @Data
+@Accessors(chain = true)
 public class RegisterForm {
     
-    // TODO: unique validator
     @NotBlank
     @Size(max = 20)
     @UniqueUsername
