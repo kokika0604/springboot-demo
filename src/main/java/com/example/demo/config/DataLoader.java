@@ -28,20 +28,23 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         
-        List<Department> departments = List.of(
-            new Department().setName("営業"),
-            new Department().setName("開発")
-        );
-        departmentRepository.saveAll(departments);
-        employeeRepository.save(new Employee().setName("user1").setDepartment(departments.get(0)));
+        if (employeeRepository.count() == 0) {
+            List<Department> departments = List.of(
+                new Department().setName("営業"),
+                new Department().setName("開発")
+            );
+            departmentRepository.saveAll(departments);
+            employeeRepository.save(new Employee().setName("user1").setDepartment(departments.get(0)));
+        }
 
-
-        User user = new User()
-            .setUsername("admin")
-            .setPassword(passwordEncoder.encode("password"))
-            .setEmail("k.kou@customedia.co.jp")
-            .setAuthority(User.Authority.ADMIN);
-        userRepository.save(user);
+        if (userRepository.count() == 0) {
+            User user = new User()
+                .setUsername("admin")
+                .setPassword(passwordEncoder.encode("password"))
+                .setEmail("k.kou@customedia.co.jp")
+                .setAuthority(User.Authority.ADMIN);
+            userRepository.save(user);
+        }
     }
 
 }

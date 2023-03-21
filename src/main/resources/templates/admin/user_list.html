@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout_security}">
-
 <body>
 
   <!-- サイドバーの表示 -->
@@ -21,12 +20,13 @@
 
           <div class="card shadow">
             <div class="card-header">
-              <h6 class="text-navy my-2">マイページ</h6>
+              <h6 class="text-navy my-2">ユーザ一覧</h6>
             </div>
             <div class="card-body table-responsive">
-              <table class="table table-bordered">
+              <table id="user-table" class="table table-bordered">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>ユーザ名</th>
                     <th>Email</th>
                     <th>性別</th>
@@ -34,7 +34,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:object="${currentUser}">
+                  <tr th:each="user : ${users}" th:object="${user}">
+                    <td th:text="*{id}"></td>
                     <td th:text="*{username}"></td>
                     <td th:text="*{email}"></td>
                     <td th:text="*{gender?.label}"></td>
