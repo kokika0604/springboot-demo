@@ -19,5 +19,5 @@ public @interface Enum {
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {}; 
+    Class<? extends Payload>[] payload() default {};
 }
